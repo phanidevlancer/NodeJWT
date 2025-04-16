@@ -3,17 +3,18 @@ const { registerController } = require('../controllers/auth.contoller')
 const router = express.Router()
 
 
+
 //Get collection of users
-router.get('/users',(req,res) => {
+router.get('/users', (req, res) => {
 
 })
 
 //Signup Route
-router.post('/register',registerController)
+router.post('/register', registerController)
 
 //login route
-router.post('/login',(req,res) => {
-    
+router.post('/login', (req, res) => {
+
 })
 
 
