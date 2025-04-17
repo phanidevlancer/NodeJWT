@@ -1,7 +1,18 @@
 const User = require("../models/user.model");
 
-async function findOneUserByEmailOrPassword(email, username) {
-    return await User.findOne({ $or: [{ email }, { username }] })
+async function findUserByEmailOrPassword(email, UserName) {
+    console.log('checking for username', UserName)
+    console.log('checking for email', email)
+
+    return await User.findOne({ $or: [{ email }, { UserName }] })
 }
 
-module.exports = { findOneUserByEmailOrPassword }
+async function createUser({ username, email, hashedPassword }) {
+    const data = new User()
+    data.UserName = username
+    data.email = email
+    data.password = hashedPassword
+    return await data.save()
+}
+
+module.exports = { findUserByEmailOrPassword, createUser }
